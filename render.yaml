@@ -1,5 +1,4 @@
 # Render Blueprint - One-click deployment
-# Deploy both backend and frontend to Render free tier
 # https://render.com/docs/blueprint-spec
 
 services:
@@ -23,9 +22,9 @@ services:
       - key: DEBUG
         value: "false"
 
-  # Frontend (React + Vite) - Static sites are free by default
-  - type: static
-    name: fund-analytics-frontend
+staticSites:
+  # Frontend (React + Vite)
+  - name: fund-analytics-frontend
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     headers:
