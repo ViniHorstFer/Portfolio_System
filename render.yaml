@@ -23,13 +23,11 @@ services:
       - key: DEBUG
         value: "false"
 
-  # Frontend (React + Vite)
-  - type: web
+  # Frontend (React + Vite) - Static sites are free by default
+  - type: static
     name: fund-analytics-frontend
-    runtime: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
-    plan: free
     headers:
       - path: /*
         name: Cache-Control
