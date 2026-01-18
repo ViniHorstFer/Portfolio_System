@@ -1,4 +1,4 @@
-# Render Blueprint - One-click deployment
+# Render Blueprint
 # https://render.com/docs/blueprint-spec
 
 services:
@@ -22,9 +22,10 @@ services:
       - key: DEBUG
         value: "false"
 
-staticSites:
-  # Frontend (React + Vite)
-  - name: fund-analytics-frontend
+  # Frontend (React + Vite) - Static Site
+  - type: web
+    name: fund-analytics-frontend
+    runtime: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     headers:
